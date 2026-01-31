@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gac-deploy
+  namespace: gacns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gac
+  template:
+    metadata:
+      labels:
+        app: gac
+    spec:
+      containers:
+        - name: gac-container
+          image: 586639730662.dkr.ecr.ap-northeast-2.amazonaws.com/gac-app:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gac-svc
+  namespace: gacns
+spec:
+  type: NodePort
+  selector:
+    app: gac
+  ports:
+    - name: gac-port
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
