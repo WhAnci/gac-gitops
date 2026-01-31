@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: gac-container
-          image: 586639730662.dkr.ecr.ap-northeast-2.amazonaws.com/gac-app:latest
+          image: 586639730662.dkr.ecr.ap-northeast-2.amazonaws.com/gac-app:2026-01-31-07-15-16
 ---
 apiVersion: v1
 kind: Service
